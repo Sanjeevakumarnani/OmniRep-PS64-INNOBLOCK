@@ -33,6 +33,10 @@ CHAINS = {
 }
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///omnirep.db")
+if DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+elif DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg://", 1)
 ATTESTOR_PRIVATE_KEY = os.getenv("ATTESTOR_PRIVATE_KEY", os.getenv("PUBLISHER_PRIVATE_KEY", ""))
 REGISTRY_ADDRESS = os.getenv("OMNIREP_REGISTRY_ADDRESS", os.getenv("TRAILMARK_REGISTRY_ADDRESS", os.getenv("REPUTATION_REGISTRY_ADDRESS", "")))
 VERIFIER_ADDRESS = os.getenv("OMNIREP_VERIFIER_ADDRESS", os.getenv("TRAILMARK_VERIFIER_ADDRESS", ""))
