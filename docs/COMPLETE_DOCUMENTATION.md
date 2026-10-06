@@ -879,7 +879,7 @@ No deploy steps, no secrets required.
 
 ### 11.7 `render.yaml` — Render blueprint
 
-Service `omnirep-api`: `type: web`, `env: python`, build `pip install -r backend/requirements.txt`, start `gunicorn --chdir backend app:app --timeout 120 --workers 2`.
+Service `omnirep-api`: `type: web`, `env: python`, build `pip install -r backend/requirements.txt`, start `gunicorn --chdir backend --bind 0.0.0.0:$PORT app:app --timeout 120 --workers 2`.
 
 23 env keys (all `sync: false` — set manually in the dashboard):
 - **Secrets:** `DATABASE_URL`, `FRONTEND_ORIGIN`, `ATTESTOR_PRIVATE_KEY`, `ETHERSCAN_API_KEY`, `AI_API_KEY`, `AI_BASE_URL`, `AI_MODEL`

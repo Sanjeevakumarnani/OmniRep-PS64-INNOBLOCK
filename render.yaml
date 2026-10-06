@@ -3,7 +3,7 @@ services:
     name: omnirep-api
     env: python
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn --chdir backend app:app --timeout 120 --workers 2
+    startCommand: gunicorn --chdir backend --bind 0.0.0.0:$PORT app:app --timeout 120 --workers 2
     envVars:
       - key: DATABASE_URL
         sync: false
