@@ -1,0 +1,2 @@
+import {useEffect,useState} from 'react';
+export function NumberTicker({value,duration=650}:{value:number;duration?:number}){const [n,setN]=useState(value);useEffect(()=>{const from=n,to=value,start=performance.now();let raf=0;const loop=(t:number)=>{const p=Math.min(1,(t-start)/duration);setN(Math.round(from+(to-from)*(1-Math.pow(1-p,3))));if(p<1)raf=requestAnimationFrame(loop)};raf=requestAnimationFrame(loop);return()=>cancelAnimationFrame(raf)},[value]);return <span>{n.toLocaleString()}</span>}

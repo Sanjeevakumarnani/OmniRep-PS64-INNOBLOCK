@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: omnirep-api
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120 --workers 2
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: ATTESTOR_PRIVATE_KEY
+        sync: false
+      - key: OMNIREP_REGISTRY_ADDRESS
+        sync: false
+      - key: TRAILMARK_REGISTRY_ADDRESS
+        sync: false
+      - key: OMNIREP_VERIFIER_ADDRESS
+        sync: false
+      - key: TRAILMARK_VERIFIER_ADDRESS
+        sync: false
+      - key: OMNIREP_BADGE_ADDRESS
+        sync: false
+      - key: TRAILMARK_BADGE_ADDRESS
+        sync: false
+      - key: LENDLITE_ADDRESS
+        sync: false
+      - key: ETH_LOAN_POOL_ADDRESS
+        sync: false
+      - key: BASE_LOAN_POOL_ADDRESS
+        sync: false
+      - key: ETH_GOVERNOR_ADDRESS
+        sync: false
+      - key: BASE_GOVERNOR_ADDRESS
+        sync: false
+      - key: ETH_CONTRIBUTION_ADDRESS
+        sync: false
+      - key: BASE_CONTRIBUTION_ADDRESS
+        sync: false
+      - key: ETH_RPC_URL
+        sync: false
+      - key: BASE_RPC_URL
+        sync: false
+      - key: ETHERSCAN_API_KEY
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_BASE_URL
+        sync: false
+      - key: AI_MODEL
+        sync: false

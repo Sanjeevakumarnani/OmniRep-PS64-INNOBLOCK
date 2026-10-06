@@ -1,0 +1,22 @@
+{
+  "name": "omnirep-passport",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm run frontend:dev",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "contracts:compile": "hardhat compile",
+    "contracts:test": "hardhat test",
+    "contracts:deploy": "hardhat run scripts/deploy.js --network sepolia",
+    "contracts:deploy:base": "hardhat run scripts/deploy-base.js --network baseSepolia",
+    "deployment:preflight": "node scripts/deployment-preflight.js",
+    "hardhat:base": "npm run contracts:deploy:base"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^16.6.1",
+    "hardhat": "^2.26.3"
+  }
+}
